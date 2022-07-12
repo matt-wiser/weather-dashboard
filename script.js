@@ -1,11 +1,3 @@
-// API key c58ad9defef708e43c489a22c4980616
-
-// example current forecast + 7 day
-// fetch('https://api.openweathermap.org/data/2.5/onecall?lat=38.7267&lon=-9.1403&exclude=hourly,minutely,alerts&units=imperial&appid=c58ad9defef708e43c489a22c4980616')
-// .then(response => response.json())
-// .then(data => console.log(data));
-
-
 const cityHistory = JSON.parse(localStorage.getItem("cityHistory")) || [];
 
 function formSubmitHandler(e){
@@ -35,7 +27,7 @@ function fetchGeoCode(city) {
     const currentCityEl = document.getElementById("current-city");
     cityEl.value = "";
     
-    fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=c58ad9defef708e43c489a22c4980616`)
+    fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=c58ad9defef708e43c489a22c4980616`)
     .then(response => response.json())
     .then(function (data){
         if (!cityHistory.includes(city) && data[0]) {
@@ -73,7 +65,7 @@ function populateUI(data) {
     currentWind.textContent = "Wind: " + data.current.wind_speed;
     currentHumidity.textContent = "Humidity: " + data.current.humidity + "%";
     currentUV.textContent = "UV Index: " + data.current.uvi;
-    weatherGlyph.setAttribute("src", `http://openweathermap.org/img/wn/${data.current.weather[0].icon}@2x.png`);
+    weatherGlyph.setAttribute("src", `https://openweathermap.org/img/wn/${data.current.weather[0].icon}@2x.png`);
     weatherGlyph.classList.remove("hidden");
 
     const dailyWeather = document.getElementById("daily-info");
@@ -92,7 +84,7 @@ function populateUI(data) {
         forecastDay.append(date);
 
         const glyph = document.createElement("img");
-        glyph.setAttribute("src", `http://openweathermap.org/img/wn/${forecastArray[i].weather[0].icon}@2x.png`);
+        glyph.setAttribute("src", `https://openweathermap.org/img/wn/${forecastArray[i].weather[0].icon}@2x.png`);
         forecastDay.append(glyph);
 
         const temp = document.createElement("h3");

@@ -8,12 +8,46 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
+
+    <nav>
+        <h2>WEATHER DASHBOARD</h2>
+    </nav>
     
-    <form id="cityForm">
-        <label for="city">Enter City for Forecast</label>
-        <input type="text" id="city" name="city">
-        <input type="submit" value="Submit">
-    </form> 
+    <div id="content-container">
+        <section id="search">
+            <h2>Search for a City</h2>
+            <form id="cityForm">
+                <input type="text" id="city" name="city">
+                <input type="submit" value="Search" id="submit" class="button">
+            </form>
+
+            <div id="search-history">
+                <button class="searched-city"></button>
+            </div>
+        </section>
+
+        <section id="current-weather">
+            <h2 id="current-city"></h5>
+            <p id="temp">Temp: </p>
+            <p id="wind">Wind: </p>
+            <p id="humidity">Humidity: </p>
+            <p id="uv">UV Index: </p>
+        </section>
+
+    
+    <section id="forecast">
+        <h2>5 Day Forecast</h2>
+        
+        <div id="forecast-container">
+            <div class="forecast" data-day="1"></div>
+            <div class="forecast" data-day="2"></div>
+            <div class="forecast" data-day="3"></div>
+            <div class="forecast" data-day="4"></div>
+            <div class="forecast" data-day="5"></div>
+        </div>
+        
+    </section>
+    </div>
     
     
     
